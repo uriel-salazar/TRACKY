@@ -63,34 +63,35 @@ def activity_level():
     for i,each in enumerate(activity.keys(),start=1):
         print(f'-{i} {each}')
 
-    type_act=input("What type of activty you are? (SELECT A NUMBER ) :")
-    print("Choose an opcion :")
-    print("""
-          1.Volumen
-          2.Cutting""")
-    ask=input("What are you going to choose??")
-    return type_act,activity,ask,
+    type_act=int(input("What type of activty you are? (SELECT A NUMBER ) :"))
+    return type_act,activity
 
 
-def cutting(type_act,value,activity):
-    multiply=activity[type_act]
-    x=value
-    result=x*multiply
-    print(result)
+def TDEE(type_act_key, bmr_value, activity_dict):
+    multiply=activity_dict[type_act_key]
+    result=bmr_value*multiply
+    print(f'Your TDEE : {result}')
+    return result
     
     
-    
+   
       
 year,wg,h,gre=data()
-value=bmr(year,wg,h,gre)
-bmr(year,wg,h,gre)
-write(value,gre)
-activity_level()
-type_act,actvity=cutting(value)
-cutting(type_act)
- 
+bmr_value=bmr(year,wg,h,gre)
+write(bmr_value,gre)
+
+type_act_index,activity_dict=activity_level()
+keys = list(activity_dict.keys())
+type_act_key = keys[type_act_index - 1]
+
+tdee_value = TDEE(type_act_key, bmr_value, activity_dict)
 
 
+#print("Choose an opcion :")
+ #   print("""
+    #      1.Volumen
+     #     2.Cutting""")
+ #   ask=input("What are you going to choose??")
 
 
  
