@@ -74,7 +74,7 @@ def TDEE(type_act_key, bmr_value, activity_dict):
     return result
     
     
-   
+
       
 year,wg,h,gre=data()
 bmr_value=bmr(year,wg,h,gre)
@@ -87,11 +87,14 @@ type_act_key = keys[type_act_index - 1]
 tdee_value = TDEE(type_act_key, bmr_value, activity_dict)
 
 
-#print("Choose an opcion :")
- #   print("""
+
+
+
+print("Choose an opcion :")
+print("""
     #      1.Volumen
      #     2.Cutting""")
- #   ask=input("What are you going to choose??")
+ask=input("What are you going to choose??")
 
 
  
