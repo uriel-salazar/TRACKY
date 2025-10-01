@@ -8,7 +8,7 @@ def data():
                 print("Setting up your calories :")
                 year=int(input("How old are you?? :"))
                 wg=float(input("what is your weigh??: "))
-                gre=input("Are you a women or men ? (woman/man)").lower()
+                gre=input("Are you a women or men ? (woman/man)").upper()
                 h=float(input(("What is your heigh??")))
                 
                 print("--- Confirming your data ---")
@@ -18,7 +18,7 @@ def data():
                 Heigh :{h} m
                 Gender:{gre} 
                             ''')
-                confirm=input("Does your data is correct?? (yes/no):").lower()
+                confirm=input("Does your data is correct?? (yes/no):")
                 if confirm=="yes":
                     return year,wg,h,gre
                 
@@ -27,7 +27,7 @@ def data():
           
 def bmr(year,wg,h,gre):
     
-    if gre=="man":
+    if gre=="MAN":
        value=10 *(wg) +6.25 *(h)-5*year+5
     else:
         value=10*(wg)+6.25*(h)-5*year-161
@@ -38,7 +38,7 @@ def bmr(year,wg,h,gre):
  
 def write(value,gre):
     print("Your data has been saved succesfully!") 
-    if  gre=="man":
+    if  gre=="MAN":
         m_dat=pd.DataFrame({
                     "BMR":[value],
                     "Genre":[gre]
@@ -70,7 +70,7 @@ def activity_level():
 def TDEE(type_act_key, bmr_value, activity_dict):
     multiply=activity_dict[type_act_key]
     result=bmr_value*multiply
-    print(f'Your TDEE : {result}')
+    print(f'Your TDEE : {result:.0f}')
     return result
     
     
@@ -89,12 +89,6 @@ tdee_value = TDEE(type_act_key, bmr_value, activity_dict)
 
 
 
-
-print("Choose an opcion :")
-print("""
-    #      1.Volumen
-     #     2.Cutting""")
-ask=input("What are you going to choose??")
 
 
  
