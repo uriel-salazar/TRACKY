@@ -1,5 +1,5 @@
 from personalize_macros import tdee_value
-
+import pandas as pd
 from personalize_macros import wg
 
 
@@ -42,7 +42,7 @@ def option(tdee_value):
                 print("Welcome to normal cutting")
                 cal=tdee_value-500
                 print(f'{cal:.0f} cal ')
-            return cal
+            return cal,ask
                 
                 
     #defining two functions for setting up the daily protein 
@@ -50,32 +50,56 @@ def option(tdee_value):
 def prote(wg):
   rule_prote=2.2
   calcul=rule_prote*wg
-  print(f'Your daily ingest of protein : {calcul:.0f}')
+  gram_p=4
+  cal_prote=calcul*gram_p
   
+  print(f'Your daily ingest of protein : {calcul:.0f} gr  ({cal_prote:.0f}cal )')
+  return cal_prote,calcul
   
-  
+   
 
 def fats_bk(cal):
-    if cal:
       intake_f=0.25
-      print(type(cal))
       cal=int(cal)
       fat_sum=cal*intake_f/9
-      print(f"Your daily fat intake is : {fat_sum:.0f} gr")
-       
-    else:
-      pass
-    return fat_sum
+      gram_f=9
+      cal_fat=fat_sum*gram_f
+      
+      print(f"Your daily fat intake is : {fat_sum:.0f} gr equals : {cal_fat:.0f} cal")
+      return cal_fat,fat_sum
+
     
   
-    
+def carbs_grams(cal,cal_fat,cal_prote):
+        v_carb=cal-cal_prote-cal_fat
+        grams=v_carb/4
+        print(f"You carbs :{grams:.0f} gr")
+        return grams
+      
 
             
+
 option(tdee_value)
 
-prote(wg)
+prote_cals,prote_grams=prote(wg)
 
-fats_bk(cal)
+fat_cals,fat_grams=((fats_bk(tdee_value)))
+grams=carbs_grams(tdee_value,prote_grams,fat_grams)
+
+#### saving data 
+def save_data():
+    macros={
+    "Fat":[fat_grams],
+    "Protein":[prote_grams],
+    "Carbs":[grams]
+    
+              }
+    macro_save=pd.DataFrame(macros)
+    print(macro_save)
+  
+
+save_data()
+
 
 
 

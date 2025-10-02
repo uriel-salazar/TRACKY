@@ -89,8 +89,6 @@ tdee_value = TDEE(type_act_key, bmr_value, activity_dict)
 
 
 
-
-
  
  
     
