@@ -20,14 +20,14 @@ def option(tdee_value):
                 2. Normal bulking """)
                 bulk_type=int(input("What type of bulking are you looking for ?:"))
                 if bulk_type==1:  
-                      sum=tdee_value+500
-                      print(f"Your total of calories for your bulking are : {sum:.0f} cal     ")
+                      cal=tdee_value+500
+                      print(f"Your total of calories for your bulking are : {cal:.0f} cal     ")
                 elif bulk_type==2:
     
-                     sum=tdee_value+300
+                     cal=tdee_value+300
                     
-                     print(f' {sum:.0f} cal ')
-                return sum
+                     print(f' {cal:.0f} cal ')
+                return cal
         elif ask==2:
             print(""" 1. Agressive cutting
               2. Normal cutting  """)
@@ -35,14 +35,14 @@ def option(tdee_value):
             if cutting_type==1:
                 print("Welcome to aggressive cutting")
                 
-                sum=tdee_value-700
-                print(f'{sum:.0f} cal ')
+                cal=tdee_value-700
+                print(f'{cal:.0f} cal ')
                 
             elif cutting_type==2:
                 print("Welcome to normal cutting")
-                sum=tdee_value-500
-                print(f'{sum:.0f} cal ')
-            return sum
+                cal=tdee_value-500
+                print(f'{cal:.0f} cal ')
+            return cal
                 
                 
     #defining two functions for setting up the daily protein 
@@ -55,10 +55,12 @@ def prote(wg):
   
   
 
-def fats_bk(sum):
-    if sum:
+def fats_bk(cal):
+    if cal:
       intake_f=0.25
-      fat_sum=int(sum*intake_f/9)
+      print(type(cal))
+      cal=int(cal)
+      fat_sum=cal*intake_f/9
       print(f"Your daily fat intake is : {fat_sum:.0f} gr")
        
     else:
@@ -68,15 +70,14 @@ def fats_bk(sum):
   
     
 
-   
             
 option(tdee_value)
 
 prote(wg)
 
-fat_sum=fats_bk(sum)
+fats_bk(cal)
 
-fats_bk(fat_sum)
+
 
 
 
