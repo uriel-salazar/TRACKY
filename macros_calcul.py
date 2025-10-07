@@ -57,7 +57,7 @@ def prote(wg):
   print(f'Your daily ingest of protein : {calcul} gr  ({cal_prote:.0f}cal )')
   return cal_prote,calcul
   
-   
+  """" this is goin"""
 
 def fats(cal):
       intake_f=0.25

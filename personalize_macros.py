@@ -36,6 +36,9 @@ def data():
                 if confirm=="yes":
                     return year,wg,h,gre,name
                 
+         # data ()
+         # in this section we know the name , gender , 
+         # years, weight and the heigh from the user 
                 
 
           
@@ -47,6 +50,8 @@ def bmr(year,wg,h,gre):
         value=10*(wg)+6.25*(h)-5*year-161
     return value
     
+    #is going to return the bmr() from each user 
+
     
  
  
