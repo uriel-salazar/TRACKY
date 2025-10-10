@@ -1,6 +1,6 @@
 from texts import basic_info,option_goal,type_bulking,type_cutting
 from saving_data import begin_data
-from control import bmr
+from control import bmr,prote
 
 
 def info_and_bmr():
@@ -8,7 +8,9 @@ def info_and_bmr():
     value_bmr=bmr(wg,h,gre,year)
     print(f'Your BMR : {value_bmr}')
     begin_data(name,value_bmr,gre)
-    return value_bmr
+    return value_bmr,wg
+  
+
 
 def two_options(preference,tdee,sub_option,):
     if preference==1:
@@ -32,7 +34,9 @@ def decision(show_tdee):
         #if is nnot 1 this mean the answer is 2 which this means that the user 
         #is going to see their calories for cutting !
     cal=two_options(preference,show_tdee,sub_option)#
-    print(f"Your total of calories :{cal:.0f}")
+    print(f"Your total of calories :{cal:.0f} cal")
+    return cal
+
 
         
 

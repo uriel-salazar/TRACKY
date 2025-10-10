@@ -1,7 +1,6 @@
 
 import pandas as pd
 
-import os
 
 
 
@@ -9,17 +8,7 @@ import os
                 
     #defining two functions for setting up the daily protein 
             
-def prote(wg):
-  rule_prote=2.2
-  calcul=round(rule_prote*wg)
-  gram_p=4
-  cal_prote=calcul*gram_p
-  
-  
-  print(f'Your daily ingest of protein : {calcul} gr  ({cal_prote:.0f}cal )')
-  return cal_prote,calcul
-  
-  """" this is goin"""
+
 
 def fats(cal):
       intake_f=0.25

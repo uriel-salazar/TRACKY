@@ -17,11 +17,14 @@ def basic_info():
                 Years :{year} years old 
                 Weight:{wg}kg
                 Heigh :{h} m''')
-                
                 confirm=input("Does your data is correct?? (yes/no):")
                 if confirm=="yes":
+                
                     return year,wg,h,gre,name
+                
             
+    
+                
             
 def activity_level():
     activity={

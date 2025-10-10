@@ -14,9 +14,9 @@ def bmr(weight,height,group,birth):
     return value
 
 
-def TDEE(key,worth,lazy):
+def TDEE(lazy,key,worth):
     key_list=list(lazy.keys())
-    worth=float(worth)
+    worth=int(worth)
     choosen_key=key_list[key-1]
     multiply = lazy[choosen_key]
     result=worth*multiply
@@ -24,13 +24,13 @@ def TDEE(key,worth,lazy):
     return result
 
 
-def prote(weigh):
+def prote(weight):
     rule_prote=2.2
-    gr_p=round(rule_prote*weigh)
+    gr_p=round((rule_prote)*weight)
     cal_p_=4
     calories_p=gr_p*cal_p_
-    print(f"Your protein in gr :{gr_p} ")
-    print(f'Calories Protein : {calories_p}')
+    print(f"Your protein in  :{gr_p} gr  ")
+    print(f'Calories Protein : {calories_p} kcal ')
     return gr_p,calories_p
     
     
