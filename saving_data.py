@@ -27,19 +27,23 @@ def begin_data(nickname,rate,gen):
 
 
 
-def save_data():
+def save_macro(name,fat_gram,prote_grams,carb_grams):
+    name=str(name)
+    fat_gram=float(fat_gram)
+    prote_grams=float(prote_grams)
+    carb_grams=float(carb_grams)
     macros={
      "Name":[name],
-      "Fat":[fat_grams],
+      "Fat":[fat_gram],
    "Protein":[prote_grams],
-     "Carbs":[grams]
+     "Carbs":[carb_grams]
     }
     
     macro_save=pd.DataFrame(macros)
     print(macro_save)
   
-  #  file_macros="data_macros.csv"
- #   if not os.path.exists(file_macros):
-        macro_save.to_csv(file_macros,index=False,header=True)
-#    else:
- #      macro_save.to_csv(file_macros,mode='a',header=False,index=False)
+    file_macro="data_macros.csv"
+    if not os.path.exists(file_macro):
+            macro_save.to_csv(file_macro,index=False,header=True)
+    else:
+       macro_save.to_csv(file_macro,mode='a',header=False,index=False)

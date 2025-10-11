@@ -8,9 +8,8 @@ def info_and_bmr():
     value_bmr=bmr(wg,h,gre,year)
     print(f'Your BMR : {value_bmr}')
     begin_data(name,value_bmr,gre)
-    return value_bmr,wg
+    return value_bmr,wg,name
   
-
 
 def two_options(preference,tdee,sub_option,):
     if preference==1:

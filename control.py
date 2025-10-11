@@ -1,4 +1,15 @@
-          
+import os 
+
+
+def clear_console():
+    """Clears the console screen, compatible with Windows and Unix-like systems."""
+    # Check the operating system and execute the appropriate clear command
+    if os.name == 'nt':  # For Windows
+        _ = os.system('cls')
+    else:  # For Unix-like systems (Linux, macOS)
+        _ = os.system('clear')
+
+ 
 def bmr(weight,height,group,birth):
     # Ensure data types are correct
     weight = float(weight)
@@ -47,6 +58,6 @@ def carb(calories,cal_protein,cal_fat):
         gr_carb=round(cal_carb/4)
         
         print(f"Your calories from carbs  :{cal_carb} cal , grams of carbs :{gr_carb} ")
-        return cal_carb,gr_carb
+        return gr_carb,cal_carb
     
     

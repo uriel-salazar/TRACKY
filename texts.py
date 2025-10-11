@@ -1,4 +1,13 @@
+import os 
 
+
+def clear_console():
+    """Clears the console screen, compatible with Windows and Unix-like systems."""
+    # Check the operating system and execute the appropriate clear command
+    if os.name == 'nt':  # For Windows
+        _ = os.system('cls')
+    else:  # For Unix-like systems (Linux, macOS)
+        _ = os.system('clear')
 
 def basic_info():
         while True:
@@ -15,10 +24,11 @@ def basic_info():
                 Name={name}
                 Gender:{gre}
                 Years :{year} years old 
-                Weight:{wg}kg
+                Weight:{wg:.0f}kg
                 Heigh :{h} m''')
                 confirm=input("Does your data is correct?? (yes/no):")
                 if confirm=="yes":
+                    clear_console()
                 
                     return year,wg,h,gre,name
                 
