@@ -12,7 +12,17 @@ def clear_console():
 
  
 def bmr(weight,height,group,birth):
-    # Ensure data types are correct
+    """ Calculate the Basal Metabolic Rate (BMR)
+
+    Args:
+        weight (float): User's weight in kg 
+        height (float): User's height
+        group (string): User's gender (MAN/WOMAN) 
+        birth (int): User's birth year
+
+    Returns:
+        float : BMR in kcal/day
+    """
     weight = float(weight)
     height = float(height)
     birth = int(birth)
@@ -26,17 +36,35 @@ def bmr(weight,height,group,birth):
     return value
 
 
-def TDEE(lazy,key,worth):
+def TDEE(user_activity,key,bmr):
+    """Calculates TDEE
+
+    Args:
+        user_activity(dict): Dict Activities
+        key (int ):Index of User's activity 
+        bmr (float): Value of BMR (calories/day)
+
+    Returns:
+        float : BMR according to user's activity.
+    """
     print("Lets calculate your TDEE ! (Total Daily Energy Expenditure)")
-    key_list=list(lazy.keys())
-    worth=int(worth)
+    key_list=list(user_activity.keys())
+    bmr =int(bmr)    
     choosen_key=key_list[key-1]
-    multiply = lazy[choosen_key]
-    result=worth*multiply
+    multiply =user_activity[choosen_key]
+    result=bmr*multiply
     return result
 
 
 def prote(weight):
+    """Calculates your daily protein intake with output of grams and cal
+
+    Args:
+        weight (_type_): User's weigh (kg)
+
+    Returns:
+        float:Protein calculated in grams and calories 
+    """
     time.sleep(1)
     print("Setting up your protein ..🥩🍗 ")
     rule_prote=2.2
@@ -47,6 +75,15 @@ def prote(weight):
     
 
 def fat(kcal_tde,fat_number=0.25):
+    """Calculates your daily fat intake 
+
+    Args:
+        kcal_tde (float):Calories per day based on activity
+        fat_number (float): Percentage of fat (0.25)
+
+    Returns:
+        float :grams of fats,calories of fats
+    """
     time.sleep(1)
     print("Let's create your fat intake ..🔥🥑")
     kcal_tde=int(kcal_tde)
@@ -56,6 +93,16 @@ def fat(kcal_tde,fat_number=0.25):
 
   
 def carb(calories,cal_protein,cal_fat):
+    """ Calculates your carbs 
+
+    Args:
+        calories (float): Calories based on TDEE's user
+        cal_protein (float): Value of protein in calories 
+        cal_fat (float): Value of fats  in calories 
+
+    Returns:
+        float:Grams of carbs,calories of carbs
+    """
     time.sleep(1)
     print("Checking your carbs .. 🍚🫘")
     cal_carb=calories-cal_protein-cal_fat

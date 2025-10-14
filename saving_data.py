@@ -2,15 +2,22 @@ import pandas as pd
 import os 
 
 
-def begin_data(nickname,rate,gen):
+def begin_data(nickname,bmr_value,gen):
+    """Save basic info data
+
+    Args:
+        nickname (str): User's name
+        bmr_value (float): BMR value calculated
+        gen (str ): Genre of the user 
+    """
     print("Your data has been saved succesfully!") 
     nickname=str(nickname)
-    rate=float(rate)
+    bmr_value=float(bmr_value)
     gen=str(gen)
     if  gen=="MAN":
         m_dat=pd.DataFrame({
                     "Name":[nickname],
-                    "BMR":[rate],
+                    "BMR":[bmr_value],
                     "Genre":[gen]
                 
         })
@@ -18,7 +25,7 @@ def begin_data(nickname,rate,gen):
     else:
         w_dat=pd.DataFrame({
                   "Name":[nickname],
-                  "BMR":[rate],
+                  "BMR":[bmr_value],
                   "Genre":[gen]
         
     })
@@ -27,16 +34,18 @@ def begin_data(nickname,rate,gen):
 
 
 
-def save_macro(name,fat_gram,prote_grams,carb_grams):
+def save_macro(name,fat_gram,prote_grams,carb_grams,cal_value):
     name=str(name)
     fat_gram=int(fat_gram)
     prote_grams=int(prote_grams)
     carb_grams=int(carb_grams)
+    cal_value=int(cal_value)
     macros={
      "Name":[name],
       "Fat":[fat_gram],
    "Protein":[prote_grams],
-     "Carbs":[carb_grams]
+     "Carbs":[carb_grams],
+     "Total Calories":[cal_value]
     }
     
     macro_save=pd.DataFrame(macros)
