@@ -5,6 +5,8 @@ from wrap_up import info_and_bmr,set_macros
 from open_food.wrap_api import calling
 
 def menu_user():
+    """ Prints a menu that shows the available options to the user
+    """
     completed_info=False
     while True:
         print(" --- Macro Tracker --- ")

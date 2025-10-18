@@ -3,18 +3,20 @@ import os
 
 
 def begin_data(nickname,bmr_value,gen):
-    """Save basic info data
+    """Save basic info data in a csv file (pandas)
+    Creates a Pandas DataFrame
 
     Args:
         nickname (str): User's name
         bmr_value (float): BMR value calculated
         gen (str ): Genre of the user 
+        
     """
     print("Your data has been saved succesfully!") 
     nickname=str(nickname)
     bmr_value=float(bmr_value)
     gen=str(gen)
-    if  gen=="MAN":
+    if  gen=="MALE":
         m_dat=pd.DataFrame({
                     "Name":[nickname],
                     "BMR":[bmr_value],
@@ -30,6 +32,7 @@ def begin_data(nickname,bmr_value,gen):
         
     })
         w_dat.to_csv("bmr_woman.csv",mode="a",index=False,header=not os.path.exists("bmr_woman.csv"))
+    return m_dat
 
 
 

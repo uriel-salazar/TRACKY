@@ -17,7 +17,7 @@ def bmr(weight,height,group,birth):
     Args:
         weight (float): User's weight in kg 
         height (float): User's height
-        group (string): User's gender (MAN/WOMAN) 
+        group (string): User's gender (FEMALE/MALE) 
         birth (int): User's birth year
 
     Returns:
@@ -27,7 +27,7 @@ def bmr(weight,height,group,birth):
     height = float(height)
     birth = int(birth)
 
-    if group.upper() == "MAN":
+    if group.upper() == "MALE":
         value = 10 * weight + 6.25 * height - 5 * birth + 5
     else:
         value = 10 * weight + 6.25 * height - 5 * birth - 161

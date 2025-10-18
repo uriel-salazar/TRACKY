@@ -18,11 +18,11 @@ def search_product(link):
         protein_100g = nutriments.get("proteins_100g", 0)
         carbs_100g = nutriments.get("carbohydrates_100g", 0)
         fat_100g = nutriments.get("fat_100g", 0)
-        print("WUU")
+        print("We found your food 🥳 !")
         return calories, protein_100g, carbs_100g, fat_100g
     
     else:
-        print("We couldn't find anything")
+        print("We couldn't find anything 😔")
         return None, None, None, None
     
     
