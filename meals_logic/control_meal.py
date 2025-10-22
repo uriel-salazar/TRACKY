@@ -1,8 +1,13 @@
-import os
-morning=[]
+
 import pandas as pd
+import os 
     
 def manual_track():
+    """ The user enters their macros in a manual way 
+
+    Returns:
+        dict: User's Macros dict
+    """
     control_meal = {"meals": {}}
 
     while True:
@@ -31,7 +36,7 @@ def manual_track():
                 
         repeat = input("Do you want to add another meal? (yes/no): ")
         if repeat.lower() != "yes":
-            break  # exit loop if user says no
+            break  
         else:
             continue
     return control_meal
@@ -40,18 +45,48 @@ def manual_track():
     
 
 def method_track():
-    
+    """ Shows a menu for track your macros 
+
+    Returns:
+        dict: Dict manual macros 
+    """
+    meals={}
     while True:
         print("1.Enter your food manually")
-        print("2.Enter your food with our api sistem ")
-        self_or_api=int(input("What are you going to choose?:"))
-        if self_or_api==1:
-            manual_track()
-        elif self_or_api==2:
-            pass
-        
+        print("2. Check you food registered food ")
+        print("3.Check your total macros  ")
+        print("4.Exit ")
+        option=int(input("What are you going to choose?:"))
+        if option == 1:
+            meals = manual_track()
+        elif option == 2:
+            if meals:
+                number_save=track_macro_all(meals)
+            else:
+                print(" ⚠️ First you have to track your food ⚠️")
+        elif option == 3:
+            calculate() 
+        elif option == 4:
+            print("Goodbye!")
+            break
+        else:
+            print("Invalid choice, try again.")
+    
+    return meals
+
+
+    
+    
 
 def track_macro_all(control_meal):
+    """ Saves a csv file according with user's macros
+
+    Args:
+        control_meal (_type_): _description_
+
+    Returns:
+        DataFrame: User's macros file
+    """
     rows = []
     for meal_type, info in control_meal["meals"].items():
             rows.append({
@@ -74,14 +109,12 @@ def track_macro_all(control_meal):
         number_save.to_csv(file_macro, mode='a', header=False, index=False)
     return number_save
 
-
-def show_table():
-    see_table=input("Do you want to see the table?? (yes/no):")
-    if see_table=="yes":
-        calculate()
-    else:
-        pass
 def calculate():
+    """ Adds the user's macros
+
+    Returns:
+        int: Total Macros 
+    """
     read_macros=pd.read_csv("manually_macros.csv")
     dat_cal=read_macros["Calories"].sum()
     dat_prote=read_macros["Protein"].sum()
@@ -91,12 +124,10 @@ def calculate():
     print(dat_cal,"calories")
     print("Protein :",dat_prote,"gr")
     print(f'Carbs :{dat_carb} gr')
-    print(f'Fats : {dat_fats} gr') 
+    print(f'Fats : {dat_fats} gr')
+    return dat_cal,dat_prote,dat_carb,dat_fats
     
 
-meals = manual_track()
-track_macro_all(meals)
-number_save=track_macro_all
-calculate()
+
 
 
